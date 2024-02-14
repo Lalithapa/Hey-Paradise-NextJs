@@ -6,6 +6,9 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +24,12 @@ type RootLayoutProps = {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      {/* <Navbar /> 
+      <Header />*/}
+        {children}
+        <Footer />
+        </body>
     </html>
   );
 };
