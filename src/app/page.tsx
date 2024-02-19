@@ -92,8 +92,7 @@ const HomePage = async () => {
             />
           </div>
           <h3 className="mt-4 text-sm text-gray-700">{product.title}</h3>
-          <p className="mt-1 text-lg font-medium text-gray-900">{product.priceRangeV2.minVariantPrice.currencyCode} {formatPrice(product.priceRangeV2.minVariantPrice.amount)}{" "}
-            test</p>
+          <p className="mt-1 text-lg font-medium text-gray-900">{product.priceRangeV2.minVariantPrice.currencyCode} {formatPrice(product.priceRangeV2.minVariantPrice.amount)}{" "}</p>
         </Link>
         )
       })}
