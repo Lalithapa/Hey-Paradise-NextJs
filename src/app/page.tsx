@@ -5,7 +5,8 @@ import { formatPrice } from "../utils/formatPrice";
 import Image from "next/image";
 import Link from "next/link";
 import Subscribe from "@/components/Subscribe";
-import Header from "@/components/Header";
+import HeroCarousel from "@/components/HeroCarousel";
+// import { Suspense } from "react";
 
 type GraphQLResponse = {
   data: {
@@ -25,7 +26,7 @@ const getProducts = async (): Promise<GraphQLResponse> => {
     body: JSON.stringify({
       query: gql`
       query ProductsQuery {
-        products(first: 7) {
+        products(first: 50) {
           nodes {
             description
             id
@@ -65,15 +66,17 @@ const getProducts = async (): Promise<GraphQLResponse> => {
   return res.json();
 };
 const HomePage = async () => {
-  const json = await getProducts();
+  let json = await getProducts();
+ 
   return (
    <>
-   <Header />
+   <HeroCarousel/>
    <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="sr-only">Products</h2>
 
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+
         {json.data.products.nodes.map((product) => {
         const prodId = product.id.split("/").pop();
         return (
@@ -97,6 +100,7 @@ const HomePage = async () => {
         </div>
       </div>
     </div>
+    <Subscribe/>
    </>
   );
 };

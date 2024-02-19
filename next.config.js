@@ -8,7 +8,8 @@ const nextConfig = {
         
       },
     images: {
-      domains: ["cdn.shopify.com"]
+      domains: ["cdn.shopify.com","www.heyparadise.com" ],
+      
     },
     reactStrictMode: true
   };

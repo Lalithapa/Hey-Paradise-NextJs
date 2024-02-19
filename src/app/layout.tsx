@@ -26,7 +26,8 @@ const RootLayout = ({ children }: RootLayoutProps) => {
     <html lang="en">
       <body className={inter.className}>
       {/* <Navbar /> 
-      <Header />*/}
+      */}
+      <Header />
         {children}
         <Footer />
         </body>
